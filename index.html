@@ -272,14 +272,28 @@
       font-size: 10px;
       font-weight: 700;
     }
+    .feature-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
     .feature-cta {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      padding: 8px 11px;
       color: var(--primary-deep);
+      background: var(--primary-soft);
+      border-radius: 7px;
       font-size: 13px;
       font-weight: 800;
     }
+    .feature-cta.cloud {
+      color: #fff;
+      background: var(--primary);
+    }
+    .feature-cta:hover { background: #e2e5ff; }
+    .feature-cta.cloud:hover { background: var(--primary-deep); }
     .feature-media {
       position: relative;
       isolation: isolate;
@@ -586,7 +600,7 @@
         <span class="brand-copy">MindScale<small>HUAWEI NOAH'S ARK LAB</small></span>
       </a>
       <nav class="nav-links" id="navigation" aria-label="主要导航">
-        <a href="#highlights">热点技术</a>
+        <a href="#highlights">最新技术</a>
         <a href="#overview">技术全景</a>
         <a href="#challenges">核心挑战</a>
         <a href="#research">研究成果</a>
@@ -605,7 +619,7 @@
           <h1>MindScale：<br><span>Agent 时代的行业应用算法工具包</span></h1>
           <p class="lead">MindScale 将分散的前沿算法研究沉淀为开放、可复用的技术能力，帮助行业 Agent 吸收专业知识、积累任务经验、持续自我演进，并以更低成本、更高可信度完成复杂任务。</p>
           <div class="hero-actions">
-            <a class="button primary" href="#highlights">查看热点技术 ↓</a>
+            <a class="button primary" href="#highlights">查看最新技术 ↓</a>
             <a class="button" href="#overview">浏览技术全景</a>
           </div>
         </div>
@@ -623,31 +637,35 @@
         <div class="featured-head">
           <div>
             <div class="section-label">Featured Research</div>
-            <h2 id="featured-title">热点技术</h2>
+            <h2 id="featured-title">最新技术</h2>
           </div>
-          <p>聚焦近期开放的代表性研究与工具。左右滑动或使用方向按钮切换，点击项目即可访问对应 GitHub 仓库。</p>
+          <p>聚焦近期开放的代表性研究与工具。左右滑动或使用方向按钮切换，通过项目按钮访问代码仓库与在线服务。</p>
         </div>
 
-        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="MindScale 热点技术">
+        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="MindScale 最新技术">
           <div class="carousel-track">
-            <a class="feature-slide" href="https://github.com/mindscale-noah/MindMemOS" target="_blank" rel="noreferrer" aria-label="打开 MindMemOS GitHub 仓库">
+            <article class="feature-slide" aria-label="MindMemOS">
               <div class="feature-copy">
                 <span class="project-label">Open-source · Agent Memory</span>
                 <h3>MindMemOS</h3>
                 <p>面向 AI Agent 的开源长期记忆系统，将对话、文件、工具轨迹、反馈与离线反思转化为可检索、可更新、项目隔离的长期记忆。</p>
                 <div class="feature-points">
-                  <span>LoCoMo 93.64</span>
-                  <span>跨 Agent 迁移</span>
-                  <span>Memory × Skills 演进</span>
+                  <span>跨Agent记忆管理</span>
+                  <span>Memory x Skills协同演进</span>
+                  <span>一键接入</span>
+                  <span>免费使用</span>
                 </div>
-                <span class="feature-cta">访问 GitHub 仓库 ↗</span>
+                <div class="feature-actions">
+                  <a class="feature-cta slide-link" href="https://github.com/mindscale-noah/MindMemOS" target="_blank" rel="noreferrer">GitHub 仓库 ↗</a>
+                  <a class="feature-cta cloud slide-link" href="https://mindmemos.cn" target="_blank" rel="noreferrer">免费云服务 ↗</a>
+                </div>
               </div>
               <div class="feature-media" style="--feature-bg: url('assets/mindmemos-hero.png')">
                 <img src="assets/mindmemos-hero.png" alt="MindMemOS Memory For AI Agents 项目封面">
               </div>
-            </a>
+            </article>
 
-            <a class="feature-slide" href="https://github.com/Optima-CityU/LLM4AD_Next" target="_blank" rel="noreferrer" aria-label="打开 LLM4AD NEXT GitHub 仓库">
+            <article class="feature-slide" aria-label="LLM4AD NEXT">
               <div class="feature-copy">
                 <span class="project-label">Open-source · Algorithm Discovery</span>
                 <h3>LLM4AD NEXT</h3>
@@ -657,21 +675,23 @@
                   <span>进化搜索</span>
                   <span>在线试用</span>
                 </div>
-                <span class="feature-cta">访问 GitHub 仓库 ↗</span>
+                <div class="feature-actions">
+                  <a class="feature-cta slide-link" href="https://github.com/Optima-CityU/LLM4AD_Next" target="_blank" rel="noreferrer">GitHub 仓库 ↗</a>
+                </div>
               </div>
               <div class="feature-media light" style="--feature-bg: url('assets/llm4ad-next-home.png')">
                 <img src="assets/llm4ad-next-home.png" alt="LLM4AD NEXT 自动算法设计平台首页">
               </div>
-            </a>
+            </article>
           </div>
         </div>
 
         <div class="carousel-controls">
           <div class="carousel-arrows">
-            <button class="carousel-arrow carousel-prev" type="button" aria-label="上一项热点技术">←</button>
-            <button class="carousel-arrow carousel-next" type="button" aria-label="下一项热点技术">→</button>
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="上一项最新技术">←</button>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="下一项最新技术">→</button>
           </div>
-          <div class="carousel-dots" aria-label="选择热点技术">
+          <div class="carousel-dots" aria-label="选择最新技术">
             <button class="carousel-dot" type="button" aria-label="显示 MindMemOS" aria-current="true"></button>
             <button class="carousel-dot" type="button" aria-label="显示 LLM4AD NEXT" aria-current="false"></button>
           </div>
@@ -995,7 +1015,9 @@
       slides.forEach((slide, slideIndex) => {
         const active = slideIndex === currentSlide;
         slide.setAttribute("aria-hidden", String(!active));
-        slide.tabIndex = active ? 0 : -1;
+        slide.querySelectorAll(".slide-link").forEach(link => {
+          link.tabIndex = active ? 0 : -1;
+        });
       });
       dots.forEach((dot, dotIndex) => dot.setAttribute("aria-current", String(dotIndex === currentSlide)));
       currentLabel.textContent = String(currentSlide + 1).padStart(2, "0");
