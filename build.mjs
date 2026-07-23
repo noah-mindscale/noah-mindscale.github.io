@@ -3,14 +3,14 @@ import { copyFileSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "no
 const html = readFileSync("index.html", "utf8");
 const socialCard = readFileSync("og.png").toString("base64");
 const mindMemosHero = readFileSync("assets/mindmemos-hero.png").toString("base64");
-const llm4adHome = readFileSync("assets/llm4ad-next-home.png").toString("base64");
+const llm4adHome = readFileSync("assets/llm4ad-next-home-clean.png").toString("base64");
 
 const worker = `
 const html = ${JSON.stringify(html)};
 const socialCard = ${JSON.stringify(socialCard)};
 const imageAssets = {
   "/assets/mindmemos-hero.png": ${JSON.stringify(mindMemosHero)},
-  "/assets/llm4ad-next-home.png": ${JSON.stringify(llm4adHome)}
+  "/assets/llm4ad-next-home-clean.png": ${JSON.stringify(llm4adHome)}
 };
 
 function decodeBase64(value) {
