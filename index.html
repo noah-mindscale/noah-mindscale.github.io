@@ -188,6 +188,171 @@
     .signal b { display: block; margin-bottom: 8px; font-size: 15px; }
     .signal span { color: var(--muted); font-size: 12px; }
 
+    /* Featured research carousel */
+    .featured-tech {
+      padding: 86px 0 96px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+    .featured-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .featured-head h2 { font-size: 36px; }
+    .featured-head p { max-width: 520px; margin: 0; color: var(--muted); font-size: 14px; }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.22,.75,.25,1);
+      touch-action: pan-y;
+      will-change: transform;
+    }
+    .feature-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      min-height: 430px;
+      background: #fff;
+      outline-offset: -4px;
+    }
+    .feature-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px;
+    }
+    .feature-copy .project-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--primary-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .feature-copy .project-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px var(--green-soft);
+    }
+    .feature-copy h3 {
+      margin-bottom: 15px;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -.035em;
+    }
+    .feature-copy > p { color: var(--text); font-size: 15px; }
+    .feature-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 25px;
+    }
+    .feature-points span {
+      padding: 5px 9px;
+      color: #565a6d;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .feature-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-deep);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .feature-media {
+      position: relative;
+      isolation: isolate;
+      min-height: 430px;
+      overflow: hidden;
+      background: #0a0a0d;
+    }
+    .feature-media::before {
+      content: "";
+      position: absolute;
+      inset: -30px;
+      z-index: 0;
+      background: var(--feature-bg) center / cover no-repeat;
+      filter: blur(28px);
+      opacity: .35;
+      transform: scale(1.08);
+    }
+    .feature-media.light { background: #edf3ff; }
+    .feature-media.light::before { opacity: .5; filter: blur(22px); }
+    .feature-media img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+    .feature-media.light img { object-fit: cover; object-position: top center; }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .carousel-arrows { display: flex; gap: 8px; }
+    .carousel-arrow {
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 18px;
+      transition: .2s ease;
+    }
+    .carousel-arrow:hover { color: #fff; background: var(--primary); border-color: var(--primary); }
+    .carousel-dots { display: flex; align-items: center; gap: 9px; }
+    .carousel-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      cursor: pointer;
+      background: #d8dae4;
+      border: 0;
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+    .carousel-dot[aria-current="true"] { width: 28px; background: var(--primary); }
+    .carousel-counter { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     /* Research map */
     .map-frame {
       overflow: hidden;
@@ -382,6 +547,9 @@
       .nav-links.open { display: flex; }
       .menu { display: block; }
       .hero-grid, .section-head, .open-grid { grid-template-columns: 1fr; }
+      .featured-head { align-items: flex-start; flex-direction: column; }
+      .feature-slide { grid-template-columns: 1fr; }
+      .feature-media { min-height: 350px; order: -1; }
       .map-grid.frontier, .challenge-grid { grid-template-columns: repeat(2, 1fr); }
       .module-head { grid-template-columns: 140px 1fr; }
       .research-grid, .direction-grid { margin-left: 184px; }
@@ -390,8 +558,11 @@
     @media (max-width: 700px) {
       .container { width: min(calc(100% - 28px), var(--max)); }
       .hero { padding: 74px 0; }
-      .section, .research-section { padding: 72px 0; }
+      .section, .research-section, .featured-tech { padding: 72px 0; }
       h1 { font-size: 42px; }
+      .feature-copy { padding: 28px; }
+      .feature-media { min-height: 250px; }
+      .carousel-controls { align-items: flex-start; }
       .hero-signals, .map-grid.frontier, .map-grid.core, .challenge-grid, .research-grid, .direction-grid { grid-template-columns: 1fr; }
       .map-loop { grid-template-columns: 1fr; }
       .map-loop b { transform: rotate(90deg); }
@@ -415,6 +586,7 @@
         <span class="brand-copy">MindScale<small>HUAWEI NOAH'S ARK LAB</small></span>
       </a>
       <nav class="nav-links" id="navigation" aria-label="主要导航">
+        <a href="#highlights">热点技术</a>
         <a href="#overview">技术全景</a>
         <a href="#challenges">核心挑战</a>
         <a href="#research">研究成果</a>
@@ -433,8 +605,8 @@
           <h1>MindScale：<br><span>Agent 时代的行业应用算法工具包</span></h1>
           <p class="lead">MindScale 将分散的前沿算法研究沉淀为开放、可复用的技术能力，帮助行业 Agent 吸收专业知识、积累任务经验、持续自我演进，并以更低成本、更高可信度完成复杂任务。</p>
           <div class="hero-actions">
-            <a class="button primary" href="#overview">浏览技术全景 ↓</a>
-            <a class="button" href="#research">查看研究成果</a>
+            <a class="button primary" href="#highlights">查看热点技术 ↓</a>
+            <a class="button" href="#overview">浏览技术全景</a>
           </div>
         </div>
         <div class="hero-signals" aria-label="MindScale 研究目标">
@@ -443,6 +615,69 @@
           <div class="signal"><b>高效训推</b><span>降低长程推理的 Token、时延与算力成本</span></div>
           <div class="signal"><b>科学可信</b><span>面向过程、结果与安全边界的系统测评</span></div>
         </div>
+      </div>
+    </section>
+
+    <section class="featured-tech" id="highlights" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="featured-head">
+          <div>
+            <div class="section-label">Featured Research</div>
+            <h2 id="featured-title">热点技术</h2>
+          </div>
+          <p>聚焦近期开放的代表性研究与工具。左右滑动或使用方向按钮切换，点击项目即可访问对应 GitHub 仓库。</p>
+        </div>
+
+        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="MindScale 热点技术">
+          <div class="carousel-track">
+            <a class="feature-slide" href="https://github.com/mindscale-noah/MindMemOS" target="_blank" rel="noreferrer" aria-label="打开 MindMemOS GitHub 仓库">
+              <div class="feature-copy">
+                <span class="project-label">Open-source · Agent Memory</span>
+                <h3>MindMemOS</h3>
+                <p>面向 AI Agent 的开源长期记忆系统，将对话、文件、工具轨迹、反馈与离线反思转化为可检索、可更新、项目隔离的长期记忆。</p>
+                <div class="feature-points">
+                  <span>LoCoMo 93.64</span>
+                  <span>跨 Agent 迁移</span>
+                  <span>Memory × Skills 演进</span>
+                </div>
+                <span class="feature-cta">访问 GitHub 仓库 ↗</span>
+              </div>
+              <div class="feature-media" style="--feature-bg: url('assets/mindmemos-hero.png')">
+                <img src="assets/mindmemos-hero.png" alt="MindMemOS Memory For AI Agents 项目封面">
+              </div>
+            </a>
+
+            <a class="feature-slide" href="https://github.com/Optima-CityU/LLM4AD_Next" target="_blank" rel="noreferrer" aria-label="打开 LLM4AD NEXT GitHub 仓库">
+              <div class="feature-copy">
+                <span class="project-label">Open-source · Algorithm Discovery</span>
+                <h3>LLM4AD NEXT</h3>
+                <p>下一代自动算法设计平台：从自然语言问题描述出发，自动生成可运行的评估器、算法骨架与进化搜索工程，并在执行反馈中持续优化。</p>
+                <div class="feature-points">
+                  <span>一句话创建算法项目</span>
+                  <span>进化搜索</span>
+                  <span>在线试用</span>
+                </div>
+                <span class="feature-cta">访问 GitHub 仓库 ↗</span>
+              </div>
+              <div class="feature-media light" style="--feature-bg: url('assets/llm4ad-next-home.png')">
+                <img src="assets/llm4ad-next-home.png" alt="LLM4AD NEXT 自动算法设计平台首页">
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-arrows">
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="上一项热点技术">←</button>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="下一项热点技术">→</button>
+          </div>
+          <div class="carousel-dots" aria-label="选择热点技术">
+            <button class="carousel-dot" type="button" aria-label="显示 MindMemOS" aria-current="true"></button>
+            <button class="carousel-dot" type="button" aria-label="显示 LLM4AD NEXT" aria-current="false"></button>
+          </div>
+          <div class="carousel-counter" aria-hidden="true"><span class="carousel-current">01</span> / 02</div>
+        </div>
+        <div class="sr-only carousel-status" aria-live="polite">正在显示 MindMemOS</div>
       </div>
     </section>
 
@@ -738,6 +973,114 @@
       menu.setAttribute("aria-expanded", "false");
       menu.textContent = "☰";
     }));
+
+    const carousel = document.querySelector(".carousel");
+    const track = carousel.querySelector(".carousel-track");
+    const slides = [...carousel.querySelectorAll(".feature-slide")];
+    const dots = [...document.querySelectorAll(".carousel-dot")];
+    const previous = document.querySelector(".carousel-prev");
+    const next = document.querySelector(".carousel-next");
+    const currentLabel = document.querySelector(".carousel-current");
+    const carouselStatus = document.querySelector(".carousel-status");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let currentSlide = 0;
+    let autoplay = null;
+    let pointerStart = null;
+    let pointerDelta = 0;
+    let dragged = false;
+
+    function showSlide(index, userInitiated = false) {
+      currentSlide = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === currentSlide;
+        slide.setAttribute("aria-hidden", String(!active));
+        slide.tabIndex = active ? 0 : -1;
+      });
+      dots.forEach((dot, dotIndex) => dot.setAttribute("aria-current", String(dotIndex === currentSlide)));
+      currentLabel.textContent = String(currentSlide + 1).padStart(2, "0");
+      carouselStatus.textContent = `正在显示 ${slides[currentSlide].querySelector("h3").textContent}`;
+      if (userInitiated) restartAutoplay();
+    }
+
+    function stopAutoplay() {
+      window.clearInterval(autoplay);
+      autoplay = null;
+    }
+
+    function startAutoplay() {
+      if (reducedMotion || autoplay || document.hidden) return;
+      autoplay = window.setInterval(() => showSlide(currentSlide + 1), 3000);
+    }
+
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    previous.addEventListener("click", () => showSlide(currentSlide - 1, true));
+    next.addEventListener("click", () => showSlide(currentSlide + 1, true));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => showSlide(index, true)));
+
+    carousel.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showSlide(currentSlide - 1, true);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(currentSlide + 1, true);
+      }
+    });
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", event => {
+      if (!carousel.contains(event.relatedTarget)) startAutoplay();
+    });
+
+    track.addEventListener("pointerdown", event => {
+      pointerStart = event.clientX;
+      pointerDelta = 0;
+      dragged = false;
+      stopAutoplay();
+      track.setPointerCapture(event.pointerId);
+      track.style.transition = "none";
+    });
+    track.addEventListener("pointermove", event => {
+      if (pointerStart === null) return;
+      pointerDelta = event.clientX - pointerStart;
+      dragged = Math.abs(pointerDelta) > 8;
+      track.style.transform = `translateX(calc(-${currentSlide * 100}% + ${pointerDelta}px))`;
+    });
+    track.addEventListener("pointerup", event => {
+      if (pointerStart === null) return;
+      track.releasePointerCapture(event.pointerId);
+      track.style.transition = "";
+      if (Math.abs(pointerDelta) > 55) {
+        showSlide(currentSlide + (pointerDelta < 0 ? 1 : -1), true);
+      } else {
+        showSlide(currentSlide);
+        startAutoplay();
+      }
+      pointerStart = null;
+    });
+    track.addEventListener("pointercancel", () => {
+      pointerStart = null;
+      track.style.transition = "";
+      showSlide(currentSlide);
+      startAutoplay();
+    });
+    slides.forEach(slide => slide.addEventListener("click", event => {
+      if (dragged) {
+        event.preventDefault();
+        dragged = false;
+      }
+    }));
+    document.addEventListener("visibilitychange", () => document.hidden ? stopAutoplay() : startAutoplay());
+
+    showSlide(0);
+    startAutoplay();
 
     const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
     const observed = navLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
