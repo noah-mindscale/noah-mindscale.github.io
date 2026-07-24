@@ -462,16 +462,6 @@
       transition: .2s ease;
     }
     .research-card:hover { border-color: #cfd3ee; box-shadow: var(--shadow); }
-    .research-card.featured {
-      color: #fff;
-      background: linear-gradient(145deg, #252841, #17192b);
-      border-color: #252841;
-    }
-    .research-card.featured-purple {
-      color: #fff;
-      background: linear-gradient(145deg, #6670df, #5a45ae);
-      border-color: #6670df;
-    }
     .card-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 20px; }
     .status {
       padding: 4px 8px;
@@ -485,7 +475,6 @@
     .card-index { color: #a0a3b1; font-size: 11px; font-weight: 750; }
     .research-card h3 { margin-bottom: 12px; font-size: 22px; }
     .research-card > p { color: var(--muted); font-size: 13px; }
-    .research-card.featured > p, .research-card.featured-purple > p { color: rgba(255,255,255,.72); }
     .highlight {
       margin: 20px 0;
       padding: 13px 15px;
@@ -495,14 +484,9 @@
       border-radius: 0 8px 8px 0;
       font-size: 12px;
     }
-    .featured .highlight, .featured-purple .highlight {
-      color: rgba(255,255,255,.85);
-      background: rgba(255,255,255,.09);
-      border-left-color: #aeb5ff;
-    }
     .metric-row { display: flex; gap: 26px; margin: 18px 0 20px; }
     .metric-row strong { display: block; font-size: 28px; line-height: 1; }
-    .metric-row span { color: rgba(255,255,255,.62); font-size: 10px; }
+    .metric-row span { color: var(--muted); font-size: 10px; }
     .resource-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
     .resource {
       display: inline-flex; align-items: center; gap: 6px;
@@ -513,7 +497,6 @@
       font-size: 11px; font-weight: 760;
     }
     .resource:hover { background: #e2e5ff; }
-    .featured .resource, .featured-purple .resource { color: #fff; background: rgba(255,255,255,.12); }
     .resource.disabled { color: #9a9dab; background: #f2f2f5; cursor: default; }
     .direction-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-left: 234px; }
     .direction {
@@ -827,7 +810,7 @@
                 <a class="resource" href="https://github.com/huawei-noah/noah-research/tree/master/EvoFabric" target="_blank" rel="noreferrer">GitHub ↗</a>
               </div>
             </article>
-            <article class="research-card featured">
+            <article class="research-card">
               <div class="card-top"><span class="status">Featured Open Source</span><span class="card-index">II · 03</span></div>
               <h3>MindMemOS：长期记忆与 Skills 演进</h3>
               <p>统一管理对话、文件、工具轨迹、用户反馈和离线反思，形成可检索、可更新、可跨 Agent 复用的长期记忆系统。</p>
@@ -859,7 +842,7 @@
             <div class="module-title"><h2>自主算法发现</h2><p>融合大模型、进化搜索、自动评测与执行反馈，推动算法研发从人工设计和手动调参走向机器自主发现。</p></div>
           </div>
           <div class="research-grid">
-            <article class="research-card featured-purple">
+            <article class="research-card">
               <div class="card-top"><span class="status">Featured Open Source</span><span class="card-index">III · 01</span></div>
               <h3>LLM4AD NEXT</h3>
               <p>面向自动算法设计的一站式开放平台，统一问题、组件、搜索方法、评估器和执行器，支持算法生成、验证、比较与持续进化。</p>
