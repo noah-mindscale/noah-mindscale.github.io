@@ -418,21 +418,6 @@
     }
     .map-loop b { font-size: 18px; }
 
-    /* Challenges */
-    .challenge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .challenge {
-      min-height: 280px;
-      padding: 25px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      transition: .2s ease;
-    }
-    .challenge:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #d9dcf0; }
-    .challenge-num { color: var(--primary); font-size: 12px; font-weight: 800; }
-    .challenge h3 { margin: 22px 0 12px; }
-    .challenge p { margin-bottom: 0; color: var(--muted); font-size: 13px; }
-
     /* Research modules */
     .research-section { padding: 88px 0; border-top: 1px solid var(--line); }
     .module-head {
@@ -576,7 +561,7 @@
       .featured-head { align-items: flex-start; flex-direction: column; }
       .feature-slide { grid-template-columns: 1fr; }
       .feature-media { min-height: 350px; order: -1; }
-      .map-grid.frontier, .challenge-grid { grid-template-columns: repeat(2, 1fr); }
+      .map-grid.frontier { grid-template-columns: repeat(2, 1fr); }
       .module-head { grid-template-columns: 140px 1fr; }
       .research-grid, .direction-grid { margin-left: 184px; }
       .practice-grid { grid-template-columns: 1fr 1fr; }
@@ -591,7 +576,7 @@
       .feature-copy { padding: 28px; }
       .feature-media { min-height: 250px; }
       .carousel-controls { align-items: flex-start; }
-      .hero-signals, .map-grid.frontier, .map-grid.core, .challenge-grid, .research-grid, .direction-grid, .practice-grid { grid-template-columns: 1fr; }
+      .hero-signals, .map-grid.frontier, .map-grid.core, .research-grid, .direction-grid, .practice-grid { grid-template-columns: 1fr; }
       .practice-card:first-child { grid-column: auto; }
       .map-loop { grid-template-columns: 1fr; }
       .map-loop b { transform: rotate(90deg); }
@@ -617,7 +602,6 @@
       <nav class="nav-links" id="navigation" aria-label="主要导航">
         <a href="#highlights">最新技术</a>
         <a href="#overview">技术全景</a>
-        <a href="#challenges">核心挑战</a>
         <a href="#research">研究成果</a>
         <a href="#practice">行业实践</a>
         <a href="#opensource">开放生态</a>
@@ -752,40 +736,6 @@
               <div class="map-card foundation"><h3>智能测评与安全</h3><div class="chips"><span>测试集筛选</span><span>裁判模型</span><span>轨迹根因分析</span><span>鲁棒性</span><span>安全可信</span></div></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="challenges">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="section-number">01.</div>
-            <h2>核心技术挑战</h2>
-          </div>
-          <p class="lead">行业 Agent 从原型走向真实业务，需要同时突破构建效率、经验演进、训推成本与科学评测四类基础问题。</p>
-        </div>
-        <div class="challenge-grid">
-          <article class="challenge">
-            <div class="challenge-num">CHALLENGE 01</div>
-            <h3>Agent 应用的自动化构建</h3>
-            <p>行业应用依赖人工把专家经验和业务流程转化为 Prompt 与 Workflow，开发、调优和维护成本高，亟需可自动生成和优化的 Agent 构建技术。</p>
-          </article>
-          <article class="challenge">
-            <div class="challenge-num">CHALLENGE 02</div>
-            <h3>从静态 RAG 走向可演进记忆</h3>
-            <p>传统知识库主要保存文档，Agent 上线后产生的推理轨迹、工具经验和用户反馈难以沉淀与复用，限制了专业能力持续提升。</p>
-          </article>
-          <article class="challenge">
-            <div class="challenge-num">CHALLENGE 03</div>
-            <h3>任务自适应的高效训推</h3>
-            <p>多任务、高并发和 Agentic 多步推理显著增加 Thinking Budget，需要根据任务难度动态平衡推理效果、时延与算力成本。</p>
-          </article>
-          <article class="challenge">
-            <div class="challenge-num">CHALLENGE 04</div>
-            <h3>Agent 系统的科学测评</h3>
-            <p>Agent 输出和执行轨迹日益复杂，结果评分不足以解释失败原因，需要高效、鲁棒、可诊断且覆盖安全边界的专业测评体系。</p>
-          </article>
         </div>
       </div>
     </section>
