@@ -507,7 +507,7 @@
     .practice-head p { margin: 0; color: var(--muted); font-size: 14px; }
     .practice-grid {
       display: grid;
-      grid-template-columns: 1.18fr .9fr .9fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     .practice-card {
@@ -565,7 +565,6 @@
       .module-head { grid-template-columns: 140px 1fr; }
       .research-grid, .direction-grid { margin-left: 184px; }
       .practice-grid { grid-template-columns: 1fr 1fr; }
-      .practice-card:first-child { grid-column: 1 / -1; }
       .open-actions { justify-content: flex-start; }
     }
     @media (max-width: 700px) {
@@ -577,7 +576,6 @@
       .feature-media { min-height: 250px; }
       .carousel-controls { align-items: flex-start; }
       .hero-signals, .map-grid.frontier, .map-grid.core, .research-grid, .direction-grid, .practice-grid { grid-template-columns: 1fr; }
-      .practice-card:first-child { grid-column: auto; }
       .map-loop { grid-template-columns: 1fr; }
       .map-loop b { transform: rotate(90deg); }
       .module-head { grid-template-columns: 1fr; gap: 16px; }
@@ -922,31 +920,25 @@
             <div class="section-label">Research to Practice</div>
             <h2>研究走向实践</h2>
           </div>
-          <p>围绕行业场景适配、基础模型增强与自主算法发现，推动前沿研究进入真实任务环境。</p>
+          <p>围绕行业 Agent 落地与基础模型应用，推动前沿研究进入真实任务环境。</p>
         </div>
         <div class="practice-grid">
           <article class="practice-card">
             <div class="section-number">01 · INDUSTRY AGENTS</div>
-            <h3>行业 Agent 适配</h3>
+            <h3>行业 Agent 落地</h3>
             <div class="practice-list">
               <div class="practice-item"><b>Prompt 自动调优</b><span>金融 · 手机银行</span></div>
               <div class="practice-item"><b>任务经验系统</b><span>电力 · 辅助决策 Agent</span></div>
               <div class="practice-item"><b>MindMemOS</b><span>物流 · 芯片设计 · 金融</span></div>
+              <div class="practice-item"><b>LLM4AD NEXT</b><span>风控 · 终端 · 芯片设计</span></div>
             </div>
           </article>
           <article class="practice-card">
             <div class="section-number">02 · FOUNDATION MODEL</div>
-            <h3>基础模型增强</h3>
+            <h3>基础模型应用</h3>
             <div class="practice-list">
               <div class="practice-item"><b>ReThinker</b><span>科学推理能力提升</span></div>
               <div class="practice-item"><b>TrimR</b><span>高效推理能力提升</span></div>
-            </div>
-          </article>
-          <article class="practice-card">
-            <div class="section-number">03 · ALGORITHM DISCOVERY</div>
-            <h3>自主算法发现</h3>
-            <div class="practice-list">
-              <div class="practice-item"><b>LLM4AD NEXT</b><span>风控 · 终端 · 芯片设计</span></div>
             </div>
           </article>
         </div>
